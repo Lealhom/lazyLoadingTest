@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      eclipselink:
+        generate-ddl: none
+        logging.level: FINER
+        logging.logger: DefaultLogger
+        logging.level.sql: FINER
+        logging.parameters: true
+        jdbc.allow-native-sql-queries: true
+        jdbc.uppercase-columns: true
+        cache.shared.default: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=caas2
+    username: postgres
+    password: postgres
+
+server:
+  port: 8081
+  max-http-header-size: 16384
