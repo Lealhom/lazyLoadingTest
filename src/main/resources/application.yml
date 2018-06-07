@@ -1,6 +1,8 @@
 spring:
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
     properties:
       eclipselink:
         generate-ddl: none
@@ -12,10 +14,10 @@ spring:
         jdbc.uppercase-columns: true
         cache.shared.default: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=caas2
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=test
     username: postgres
     password: postgres
 
 server:
-  port: 8081
+  port: 8080
   max-http-header-size: 16384
