@@ -3,6 +3,7 @@ package com.omg.lazyLoadingTest.controller;
 import com.omg.lazyLoadingTest.model.BankCard;
 import com.omg.lazyLoadingTest.model.IdentityCard;
 import com.omg.lazyLoadingTest.model.Person;
+import com.omg.lazyLoadingTest.repository.IdentityCardRepository;
 import com.omg.lazyLoadingTest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class TestController {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private IdentityCardRepository identityCardRepository;
+
     @RequestMapping("/save")
     public void save(){
         Person person = new Person();
@@ -29,8 +33,16 @@ public class TestController {
         BankCard bankCard2 = new BankCard();
         bankCard2.setBankName("农业银行");
 
+        bankCard1.setPerson(person);
+        bankCard2.setPerson(person);
+
         person.getBankCards().add(bankCard1);
         person.getBankCards().add(bankCard2);
+
+        person.setName("张三");
+        person.setIdentityCard(identityCard);
+
+        identityCardRepository.save(identityCard);
 
         personRepository.save(person);
 

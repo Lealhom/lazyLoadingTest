@@ -38,5 +38,5 @@ public class Person implements Serializable {
     @JsonManagedReference("bankCards")
     @Valid
     @Size(min = 1)
-    private final List<BankCard> bankCards = new ArrayList<>();
+    private List<BankCard> bankCards = new ArrayList<>();
 }
