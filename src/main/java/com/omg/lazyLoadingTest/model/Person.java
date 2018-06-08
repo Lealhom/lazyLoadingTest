@@ -26,8 +26,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "lazy_test_person")
-//@Data 不要用这个注解，
-//@Data这个注解会附带equals()、hashCode()、toString()， 而toString()会调用属性的get方法，导致lazy loading失败
+
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Person implements Serializable {
 
