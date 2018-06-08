@@ -1,7 +1,6 @@
 package com.omg.lazyLoadingTest.repository;
 
 import com.omg.lazyLoadingTest.model.BankCard;
-import com.omg.lazyLoadingTest.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

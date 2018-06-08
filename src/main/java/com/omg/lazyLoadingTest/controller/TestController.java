@@ -79,6 +79,7 @@ public class TestController {
     @GetMapping(path = "/person3/{id}")
     public Person person3(@PathVariable String id) {
         Person person = personRepository.findOne(id);
+        System.out.println(person.getBankCards().getClass());
         person.getIdentityCard();//此时还不会查数据库
         person.getIdentityCard().getId();//这时候才会查数据库取IdentityCard,下面同理
         person.getBankCards();
@@ -94,6 +95,8 @@ public class TestController {
     @GetMapping(path = "/bankCard/{id}")
     public BankCard bankCard(@PathVariable String id) {
         BankCard bankCard = bankCardRepository.findOne(id);
+        System.out.println(bankCard.getPerson().getClass());
+        System.out.println(bankCard.getPerson().getName());
         return bankCard;
     }
 }
