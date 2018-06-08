@@ -5,8 +5,9 @@ spring:
       ddl-auto: update
     properties:
       eclipselink:
+        weaving: static
         generate-ddl: none
-        logging.level: FINER
+        logging.level: FINEST
         logging.logger: DefaultLogger
         logging.level.sql: FINER
         logging.parameters: true

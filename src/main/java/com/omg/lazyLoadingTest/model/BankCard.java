@@ -24,7 +24,7 @@ public class BankCard implements Serializable {
     @Column
     private String bankName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false,fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     @JsonBackReference("bankCards")
     private Person person;

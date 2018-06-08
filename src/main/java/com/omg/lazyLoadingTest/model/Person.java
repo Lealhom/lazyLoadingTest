@@ -1,7 +1,10 @@
 package com.omg.lazyLoadingTest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,9 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "lazy_test_person")
+//@Data 不要用这个注解，
+//@Data这个注解会附带equals()、hashCode()、toString()， 而toString()会调用属性的get方法，导致lazy loading失败
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Person implements Serializable {
 
     @Id
@@ -34,7 +41,7 @@ public class Person implements Serializable {
     @JoinColumn(name = "identity_card_id")
     private IdentityCard identityCard;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person", orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person", orphanRemoval = false, fetch = FetchType.LAZY)
     @JsonManagedReference("bankCards")
     @Valid
     @Size(min = 1)
