@@ -35,6 +35,7 @@ dependencies {
 	compile "org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.4"
 
 	compileOnly 'org.projectlombok:lombok:1.16.18'
+	compileOnly 'javax.ws.rs:javax.ws.rs-api:2.0.1'
 
 	compile group: 'ma.glasnost.orika', name: 'orika-core', version: '1.5.2'
 
