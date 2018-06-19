@@ -11,6 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface CopyCustomerRepository extends JpaRepository<CopyCustomer, String>,
-                                 JpaSpecificationExecutor<Person> {
+                                 JpaSpecificationExecutor<CopyCustomer> {
 
 }

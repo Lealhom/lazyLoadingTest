@@ -49,7 +49,9 @@ public class JpaConfig extends JpaBaseConfiguration
 
 	private String detectWeavingMode()
 	{
-		return InstrumentationLoadTimeWeaver.isInstrumentationAvailable() ? "true" : "static";
+		String mode = InstrumentationLoadTimeWeaver.isInstrumentationAvailable() ? "true" : "static";
+		mode = "static";
+		return mode;
 	}
 	
 

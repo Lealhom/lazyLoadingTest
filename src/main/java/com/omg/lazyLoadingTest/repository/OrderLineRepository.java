@@ -1,6 +1,6 @@
 package com.omg.lazyLoadingTest.repository;
 
-import com.omg.lazyLoadingTest.model.Order;
+import com.omg.lazyLoadingTest.model.OrderLine;
 import com.omg.lazyLoadingTest.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface OrderRepository extends JpaRepository<Order, String>,
-                                 JpaSpecificationExecutor<Order> {
+public interface OrderLineRepository extends JpaRepository<OrderLine, String>,
+                                 JpaSpecificationExecutor<OrderLine> {
 
 }
