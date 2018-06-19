@@ -33,6 +33,8 @@ dependencies {
 
 //	compile "org.eclipse.persistence:org.eclipse.persistence.jpa:2.7.1"
 	compile "org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.4"
+	compile "org.eclipse.persistence:eclipselink:2.6.4"
+
 
 	compileOnly 'org.projectlombok:lombok:1.16.18'
 	compileOnly 'javax.ws.rs:javax.ws.rs-api:2.0.1'
