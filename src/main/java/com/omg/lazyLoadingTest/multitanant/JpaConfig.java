@@ -11,6 +11,7 @@ import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
@@ -50,7 +51,7 @@ public class JpaConfig extends JpaBaseConfiguration
 	private String detectWeavingMode()
 	{
 		String mode = InstrumentationLoadTimeWeaver.isInstrumentationAvailable() ? "true" : "static";
-		mode = "static";
+		System.out.println("mode:"+mode);
 		return mode;
 	}
 	

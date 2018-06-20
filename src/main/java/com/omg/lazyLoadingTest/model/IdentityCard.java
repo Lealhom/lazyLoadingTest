@@ -22,6 +22,6 @@ public class IdentityCard implements Serializable {
     @Id
     private final String id = UUID.randomUUID().toString();
 
-    @Column
+    @Column(name = "card_no")
     private String cardNo;
 }

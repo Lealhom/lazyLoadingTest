@@ -27,7 +27,7 @@ public class BankCard implements Serializable {
     @Id
     private final String id = UUID.randomUUID().toString();
 
-    @Column
+    @Column(name = "bank_name")
     private String bankName;
 
     @ManyToOne(optional = false,fetch = FetchType.LAZY)

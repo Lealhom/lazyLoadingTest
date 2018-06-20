@@ -33,7 +33,7 @@ public class Order {
     @Id
     private String id = UUID.randomUUID().toString();
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COPY_CUSTOMER_ID")
     private CopyCustomer               copyCustomer;
 
