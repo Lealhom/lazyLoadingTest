@@ -74,6 +74,7 @@ public class MultitenantTestController {
     public Order get3(@PathVariable String id) {
         Order order = orderRepository.findOne(id);
         order.getOrderLines().size();//OneToMany 懒加载有效，执行这句才会打印查询order line的sql
+        System.out.println("#########################");
         order.getCopyCustomer().getId();//OneToOne 懒加载失效
         return order;
     }

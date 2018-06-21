@@ -58,7 +58,9 @@ task performJPAWeaving(type: JavaExec, dependsOn: "compileJava"){
 	classpath = configurations.compile
 }
 
-tasks.withType(Jar){
-	dependsOn "performJPAWeaving"
+tasks.withType(JavaCompile){
+	doLast{
+		tasks.performJPAWeaving.execute()
+	}
 }
 

@@ -14,8 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "lazy_test_copy_customer")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "$$ref" })
@@ -29,4 +27,15 @@ public class CopyCustomer {
     @NotNull
     private String       customerNumber;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
+    }
 }

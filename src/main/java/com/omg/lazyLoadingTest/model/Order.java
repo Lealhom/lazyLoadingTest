@@ -22,8 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "lazy_test_order")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "$$ref" })
@@ -42,4 +41,28 @@ public class Order {
     @Valid
     @Size(min = 1)
     private List<OrderLine> orderLines = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public CopyCustomer getCopyCustomer() {
+        return copyCustomer;
+    }
+
+    public void setCopyCustomer(CopyCustomer copyCustomer) {
+        this.copyCustomer = copyCustomer;
+    }
+
+    public List<OrderLine> getOrderLines() {
+        return orderLines;
+    }
+
+    public void setOrderLines(List<OrderLine> orderLines) {
+        this.orderLines = orderLines;
+    }
 }
