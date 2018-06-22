@@ -21,7 +21,7 @@ apply plugin: 'application'
 group = 'com.omg'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-applicationDefaultJvmArgs = ["-javaagent:C:\\spring-instrument-4.1.6.RELEASE.jar"]
+applicationDefaultJvmArgs = ["-javaagent:/spring-instrument-4.1.6.RELEASE.jar"]
 
 repositories {
 	mavenCentral()

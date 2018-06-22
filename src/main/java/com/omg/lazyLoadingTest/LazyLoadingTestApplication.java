@@ -13,6 +13,5 @@ public class LazyLoadingTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LazyLoadingTestApplication.class, args);
 		Properties properties = System.getProperties();
-		System.out.println(properties);
 	}
 }
