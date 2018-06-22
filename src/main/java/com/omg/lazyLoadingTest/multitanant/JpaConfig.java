@@ -52,7 +52,6 @@ public class JpaConfig extends JpaBaseConfiguration
 	{
 		String mode = InstrumentationLoadTimeWeaver.isInstrumentationAvailable() ? "true" : "static";
 		System.out.println("mode1:"+mode);
-		mode = "true";
 		return mode;
 	}
 	
@@ -61,7 +60,7 @@ public class JpaConfig extends JpaBaseConfiguration
     public PlatformTransactionManager transactionManager(final EntityManagerFactory entityManagerFactory) {
         final JpaTransactionManager transactionManager = new MultiTenantJpaTransactionManager();
 		HashMap<String, Object> props = new HashMap<>();
-		props.put("loadTimeWeaver","org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver");
+//		props.put("loadTimeWeaver","org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver");
 		transactionManager.setJpaPropertyMap(props);
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
