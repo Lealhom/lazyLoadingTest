@@ -44,23 +44,45 @@ dependencies {
 	compileOnly 'javax.ws.rs:javax.ws.rs-api:2.0.1'
 
 	compile group: 'ma.glasnost.orika', name: 'orika-core', version: '1.5.2'
+	compile group: 'org.springframework', name: 'spring-instrument', version: '4.1.6.RELEASE'
+	compile group: 'org.springframework', name: 'spring-instrument-tomcat', version: '4.1.6.RELEASE'
+
 
 }
 
-task performJPAWeaving(type: JavaExec, dependsOn: "compileJava"){
-	inputs.dir compileJava.destinationDir
-	outputs.dir compileJava.destinationDir
-	main "org.eclipse.persistence.tools.weaving.jpa.StaticWeave"
-	args  "-persistenceinfo",
-			"src/main/resources",
-			compileJava.destinationDir.getAbsolutePath(),
-			compileJava.destinationDir.getAbsolutePath()
-	classpath = configurations.compile
-}
+//task performJPAWeaving(type: JavaExec, dependsOn: "compileJava"){
+//	inputs.dir compileJava.destinationDir
+//	outputs.dir compileJava.destinationDir
+//	main "org.eclipse.persistence.tools.weaving.jpa.StaticWeave"
+//	args  "-persistenceinfo",
+//			"src/main/resources",
+//			compileJava.destinationDir.getAbsolutePath(),
+//			compileJava.destinationDir.getAbsolutePath()
+//	classpath = configurations.compile
+//}
+//
+//tasks.withType(JavaCompile){
+//	doLast{
+//		tasks.performJPAWeaving.execute()
+//	}
+//}
 
-tasks.withType(JavaCompile){
-	doLast{
-		tasks.performJPAWeaving.execute()
-	}
-}
+//task weaveJpaEntities(type: JavaExec, dependsOn: "compileJava"){
+//	inputs.dir compileJava.destinationDir
+//	outputs.dir compileJava.destinationDir
+//	main "org.eclipse.persistence.tools.weaving.jpa.StaticWeave"
+//	args "-persistenceinfo", "src/main/resources",
+//			compileJava.destinationDir.getAbsolutePath(),
+//			compileJava.destinationDir.getAbsolutePath()
+//	//,"-loglevel", "FINE"
+//	classpath = configurations.compile
+//}
+//
+//classes.dependsOn weaveJpaEntities
+//
+//tasks.withType(JavaCompile){
+//	doLast{
+//		tasks.weaveJpaEntities.execute()
+//	}
+//}
 

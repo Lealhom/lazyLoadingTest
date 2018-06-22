@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <!--
+        This file is required for the staticweave-maven-plugin.
+        It should be named 'default' so Spring will not create 2 EMFs.
+    -->
+
+    <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <class>com.omg.lazyLoadingTest.model.BankCard</class>
+        <class>com.omg.lazyLoadingTest.model.CopyCustomer</class>
+        <class>com.omg.lazyLoadingTest.model.IdentityCard</class>
+        <class>com.omg.lazyLoadingTest.model.Order</class>
+        <class>com.omg.lazyLoadingTest.model.OrderLine</class>
+        <class>com.omg.lazyLoadingTest.model.Person</class>
+        <properties>
+            <!-- EclipseLink should create the database schema automatically -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres?currentSchema=test"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
+            <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.PostgreSQLPlatform"/>
+            <!-- Enable weaving "All the things!"(TM) -->
+            <property name="eclipselink.weaving" value="static"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
